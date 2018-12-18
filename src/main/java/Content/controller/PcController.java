@@ -38,23 +38,31 @@ public class PcController {
 
     @GetMapping("/pcList")
     public String pcList(@RequestParam(required = false, defaultValue = "")String filter, Model model){
-        Iterable<Pc> pcList;
+        Iterable<Pc> pcList = pcRepository.findAll();
+        Integer sum = 0;
+        for (Pc sumPrice: pcList) {
+            sum = sum + sumPrice.getPrice();
+        }
         if(filter != null && !filter.isEmpty()){
             pcList = pcRepository.findByModel(filter);
+
         }else {
             pcList = pcRepository.findAll();
         }
         model.addAttribute("pcList", pcList);
+        model.addAttribute("sum", sum);
         model.addAttribute("filter", filter);
         return "pcList";
     }
 
+
     @PostMapping("/pcList")
     public String addPC(@RequestParam String modelName,
                         @RequestParam Integer price,
+                        @RequestParam Integer quantity,
                         @RequestParam("file") MultipartFile file,
                         Model model) throws IOException {
-        Pc pc = new Pc(modelName, price);
+        Pc pc = new Pc(modelName, price, quantity);
         if (file != null && !file.getOriginalFilename().isEmpty()){
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()){
@@ -81,10 +89,12 @@ public class PcController {
     public String savePc(
             @RequestParam String name,
             @RequestParam Integer price,
+            @RequestParam Integer quantity,
             @RequestParam("file") MultipartFile file,
             @RequestParam("id") Pc pc) throws IOException {
         pc.setModel(name);
         pc.setPrice(price);
+        pc.setQuantity(quantity);
         if (file != null && !file.getOriginalFilename().isEmpty()){
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()){
@@ -104,7 +114,6 @@ public class PcController {
         pcRepository.delete(pc);
         return "redirect:/pcList";
     }
-
 
 
 }

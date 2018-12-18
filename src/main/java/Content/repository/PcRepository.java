@@ -9,4 +9,6 @@ public interface PcRepository extends CrudRepository<Pc, Long> {
 
     List<Pc> findByModel(String model);
 
+    List<Pc> findByPrice(Integer price);
+
 }

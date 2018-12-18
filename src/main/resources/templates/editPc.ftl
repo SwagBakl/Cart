@@ -4,7 +4,8 @@
     Pc editor
     <form action="/pc/save" method="post" enctype="multipart/form-data">
         <input type="text" name="name" value="${pc.model}">
-        <input type="text" name="price" value="${pc.price}">
+        <input type="number" name="price" value="${pc.price}">
+        <input type="number" name="quantity" value="${pc.quantity}">
         <input type="file" name="file">
         <img src="/img/${pc.filename}" class="card-img-top">
         <input type="hidden" name="id" value="${pc.id}">

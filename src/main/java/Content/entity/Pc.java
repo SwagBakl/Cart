@@ -1,7 +1,11 @@
 package Content.entity;
 
 
+import org.hibernate.annotations.BatchSize;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Pc {
@@ -12,16 +16,34 @@ public class Pc {
 
     private String model;
     private Integer price;
-    private Long charact_id;
     private String filename;
+    private Integer quantity;
 
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pc")
+    private List<PcCharacts> characts = new ArrayList<>();
 
     public Pc(){}
 
-    public Pc(String model, Integer price){
+    public Pc(String model, Integer price, Integer quantity){
         this.model = model;
         this.price = price;
+        this.quantity = quantity;
+    }
+
+    public List<PcCharacts> getCharacts() {
+        return characts;
+    }
+
+    public void setCharacts(List<PcCharacts> characts) {
+        this.characts = characts;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public String getFilename() {
@@ -30,14 +52,6 @@ public class Pc {
 
     public void setFilename(String filename) {
         this.filename = filename;
-    }
-
-    public Long getCharact_id() {
-        return charact_id;
-    }
-
-    public void setCharact_id(Long charact_id) {
-        this.charact_id = charact_id;
     }
 
     public Long getId() {

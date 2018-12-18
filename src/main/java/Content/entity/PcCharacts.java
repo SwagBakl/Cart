@@ -6,16 +6,33 @@ import javax.persistence.*;
 @Table(name = "pc_characts")
 public class PcCharacts {
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     private String name;
     private String value;
 
+    @ManyToOne
+    @JoinColumn(name = "pc_id")
+    private Pc pc;
 
+    public PcCharacts(){}
+
+    public PcCharacts(String name, String value, Pc pc) {
+        this.name = name;
+        this.value = value;
+        this.pc = pc;
+    }
+
+    public Pc getPc() {
+        return pc;
+    }
+
+    public void setPc(Pc pc) {
+        this.pc = pc;
+    }
 
     public Long getId() {
         return id;

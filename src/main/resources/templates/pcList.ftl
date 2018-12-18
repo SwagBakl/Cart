@@ -10,12 +10,14 @@
     <form method="post" action="/pcList" enctype="multipart/form-data">
         <input type="text" name="modelName" placeholder="Enter pc model">
         <input type="text" name="price" placeholder="Enter pc price">
+        <input type="text" name="quantity" placeholder="Enter pc quantity">
         <input type="file" name="file">
         <input type="hidden" name="_csrf" value="${_csrf.token}">
         <button type="submit">Add new pc</button>
     </form>
 </div>
 </#if>
+
 <div>
     <form method="get" action="/pcList">
         <input type="text" name="filter" value="${filter?ifExists}">
@@ -30,13 +32,15 @@
                 <img src="/img/${list.filename}" class="card-img-top">
             </div>
             <div class="m-2">
-                <i>${list.model}</i><br>
-                <i>${list.price}</i>
+                <h6>Model: <i>${list.model}</i></h6><br>
+                <h6>Price: <i>${list.price}</i></h6><br>
+                <h6>Quantity: <i>${list.quantity}</i></h6>
             </div>
             <#if isAdmin>
             <div class="card-footer text-muted">
                 <a href="/pc/${list.id}" class="btn btn-primary">Edit</a>
                 <a href="/pc/delete/${list.id}" class="btn btn-primary">Delete</a>
+                <a href="/pc/characts/${list.id}/" class="btn btn-primary">Characts</a>
             </div>
             </#if>
         </div>

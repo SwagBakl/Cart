@@ -17,8 +17,8 @@ import java.util.UUID;
 @Controller
 public class MainController {
 
-    @Value("${upload.path}")
-    private String uploadPath;
+        @Value("${upload.path}")
+        private String uploadPath;
 
     final private PcRepository pcRepository;
     public MainController(PcRepository pcRepository){
