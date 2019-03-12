@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Collection;
 import java.util.Set;
 
@@ -15,8 +16,13 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotBlank(message = "*Заполните поле логина")
     private String username;
+    @NotBlank(message = "*Заполните поле пароля")
     private String password;
+    @Transient
+    @NotBlank(message = "*Заполните поле подтверждения пароля")
+    private String verPassword;
     private Boolean active;
 
 
@@ -28,6 +34,14 @@ public class User implements UserDetails {
 
     public boolean isAdmin(){
         return roles.contains(Role.ADMIN);
+    }
+
+    public String getVerPassword() {
+        return verPassword;
+    }
+
+    public void setVerPassword(String verPassword) {
+        this.verPassword = verPassword;
     }
 
     public Set<Role> getRoles() {

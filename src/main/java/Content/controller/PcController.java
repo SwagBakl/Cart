@@ -1,9 +1,6 @@
 package Content.controller;
 
 import Content.entity.Pc;
-import Content.entity.PcCharacts;
-import Content.entity.Role;
-import Content.entity.User;
 import Content.repository.PcCharactRepository;
 import Content.repository.PcRepository;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,11 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Controller
 public class PcController {
@@ -39,10 +32,6 @@ public class PcController {
     @GetMapping("/pcList")
     public String pcList(@RequestParam(required = false, defaultValue = "")String filter, Model model){
         Iterable<Pc> pcList = pcRepository.findAll();
-        Integer sum = 0;
-        for (Pc sumPrice: pcList) {
-            sum = sum + sumPrice.getPrice();
-        }
         if(filter != null && !filter.isEmpty()){
             pcList = pcRepository.findByModel(filter);
 
@@ -50,9 +39,8 @@ public class PcController {
             pcList = pcRepository.findAll();
         }
         model.addAttribute("pcList", pcList);
-        model.addAttribute("sum", sum);
         model.addAttribute("filter", filter);
-        return "pcList";
+        return "pc/pcList";
     }
 
 
@@ -76,13 +64,13 @@ public class PcController {
         pcRepository.save(pc);
         Iterable<Pc> pcList = pcRepository.findAll();
         model.addAttribute("pcList", pcList);
-        return "pcList";
+        return "pc/pcList";
     }
 
     @GetMapping("/pc/{pc}")
     public String editPc(@PathVariable Pc pc, Model model){
         model.addAttribute("pc", pc);
-        return "editPc";
+        return "pc/editPc";
     }
 
     @PostMapping("/pc/save")

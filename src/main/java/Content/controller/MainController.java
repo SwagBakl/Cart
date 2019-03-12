@@ -35,29 +35,6 @@ public class MainController {
         return "main";
     }
 
-//    @PostMapping("/main")
-//    public String addItem(@RequestParam String name,
-//                          @RequestParam String desc,
-//                          @RequestParam("file") MultipartFile file,
-//                          Model model) throws IOException {
-//        Catalog catalog = new Catalog(name, desc);
-//
-//        if (file != null && !file.getOriginalFilename().isEmpty()){
-//            File uploadDir = new File(uploadPath);
-//            if (!uploadDir.exists()){
-//                uploadDir.mkdir();
-//            }
-//            String uuidFile = UUID.randomUUID().toString();
-//            String resultFilename = uuidFile + "." + file.getOriginalFilename();
-//            file.transferTo(new File(uploadPath + "/" + resultFilename));
-//            catalog.setFilename(resultFilename);
-//        }
-//
-//        catalogRepository.save(catalog);
-//        Iterable<Catalog> catalogList = catalogRepository.findAll();
-//        model.addAttribute("catalogList", catalogList);
-//        return "main";
-//    }
 
 
 }

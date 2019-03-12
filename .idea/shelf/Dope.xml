@@ -1,0 +1,44 @@
+<changelist name="Dope" date="1546881515919" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Dope/shelved.patch" />
+  <option name="DESCRIPTION" value="Dope" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/main/resources/images/bg.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Dope/bg.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/main/resources/images/content_bg.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Dope/content_bg.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/main/resources/images/fridge.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Dope/fridge.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/main/resources/images/microwave.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Dope/microwave.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/main/resources/images/NoteBook.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Dope/NoteBook.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/main/resources/images/TV.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Dope/TV.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/main/resources/images/user.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Dope/user.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="src/main/resources/images/washer.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Dope/washer.png" />
+  </binary>
+</changelist>
